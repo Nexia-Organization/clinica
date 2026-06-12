@@ -1,0 +1,39 @@
+[
+  {
+    "stats": {
+      "timestamp": "2026-02-27T10:37:29.851610",
+      "total_patients": 91
+    },
+    "parser_stats": {
+      "enfermeria": {
+        "execution_time_sec": 8.93,
+        "input_file_size_kb": 1310.23,
+        "patients": 80,
+        "total_shifts": 2955,
+        "date_range": [
+          "2025-11-01T05:50:00",
+          "2026-02-23T06:10:00"
+        ],
+        "ignored_lines": 0,
+        "vitals_captured": 1735,
+        "nurses_active": 40
+      },
+      "farmacia": {
+        "execution_time_sec": 0.44,
+        "input_file_size_kb": 171.89,
+        "patients": 80,
+        "total_indications": 351,
+        "date_range": [
+          "2025-11-01T09:55:00",
+          "2026-02-23T07:49:00"
+        ],
+        "total_messages": 1474
+      }
+    },
+    "inputs": {
+      "enfermeria_input": "Chat de WhatsApp con Grupo asistentes 11-2025.txt",
+      "indicaciones_input": "Chat de WhatsApp con Farmacia. Indic médicas11-2025.txt",
+      "names_id": "names-id.txt"
+    }
+  }
+]

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  clinica-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clinica-app
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - FLASK_ENV=production
+      # Variables de Google Cloud (opcional, si no usas archivo de credenciales)
+      # - GOOGLE_CLOUD_PROJECT=your-project-id
+      # - GOOGLE_APPLICATION_CREDENTIALS=/app/gc-key.json
+    volumes:
+      # Montar directorios para persistencia de datos
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+      # Montar credenciales (asegúrate de tener gc-key.json en el directorio raíz)
+      - ./gc-key.json:/app/gc-key.json:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8080/api/health')"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
